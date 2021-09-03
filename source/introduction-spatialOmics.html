@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Populate SpatialOmics instance &mdash; spatialHeterogeneity  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="spatialHeterogeneity package" href="../api/spatialHeterogeneity.html" />
+    <link rel="prev" title="Introduction of ATHENA" href="athena.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> spatialHeterogeneity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="athena.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to spatialOmics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/spatialHeterogeneity.html">ATHENA API reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">spatialHeterogeneity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Populate SpatialOmics instance</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/source/introduction-spatialOmics.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="populate-spatialomics-instance">
+<h1>Populate SpatialOmics instance<a class="headerlink" href="#populate-spatialomics-instance" title="Permalink to this headline">¶</a></h1>
+<p>Spatial omics technologies are an emergent field and currently no standard libraries or data structures exists for handling the generated data in a consistent way. To facilitate the development of this framework we introduce the <em>SpatialOmics</em> class. Since we work with high-dimensional images, memory complexity is a problem. <em>SpatialOmics</em> stores data in a HDF5 file and lazily loads the required images on the fly to keep the memory consumption low.
+The design of this class is inspred by <em>AnnData</em>, a class developed for the analysis of single-cell data sets.</p>
+<p><strong>Objective</strong></p>
+<ul class="simple">
+<li><p>Data standard for consistent method development</p></li>
+<li><p>Technology-agnostic (resolutions, multiplexing and modalities )</p></li>
+</ul>
+<p><strong>Attributes</strong></p>
+<ul class="simple">
+<li><p><strong>X</strong>: Single-cell expression values (observations)</p></li>
+<li><p><strong>var</strong>: Annotation of features in X</p></li>
+<li><p><strong>obs</strong>: Annotation of observations</p></li>
+<li><p><strong>spl</strong>: Annotation of samples</p></li>
+<li><p><strong>G</strong>: Graph representation of observations</p></li>
+<li><p><strong>images</strong>: Raw images</p></li>
+<li><p><strong>masks</strong>: Segmentation masks</p></li>
+<li><p><strong>uns</strong>: Unstructured data</p></li>
+</ul>
+<p><img alt="spatialOmics.png" src="../_images/spatialOmics.png" /></p>
+<p><strong>Data hierarchy</strong></p>
+<ul class="simple">
+<li><p>Sample-level information: patient features, acquisition details</p></li>
+<li><p>Observation-level information: expression levels, coordinates, phenotyping
+<img alt="sample.png" src="../_images/sample.png" /></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tarfile</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spatialOmics</span> <span class="kn">import</span> <span class="n">SpatialOmics</span>
+
+<span class="c1"># create empty instance</span>
+<span class="n">so</span> <span class="o">=</span> <span class="n">SpatialOmics</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">tarfile</span>
+
+<span class="c1"># url from which we download example images</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://ndownloader.figshare.com/files/29006556&#39;</span>
+<span class="n">filehandle</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract images from tar archive</span>
+<span class="n">fimg</span> <span class="o">=</span> <span class="s1">&#39;BaselTMA_SP41_15.475kx12.665ky_10000x8500_5_20170905_122_166_X15Y4_231_a0_full.tiff&#39;</span>
+<span class="n">fmask</span> <span class="o">=</span> <span class="s1">&#39;BaselTMA_SP41_15.475kx12.665ky_10000x8500_5_20170905_122_166_X15Y4_231_a0_full_maks.tiff&#39;</span>
+<span class="n">fmeta</span> <span class="o">=</span> <span class="s1">&#39;meta_data.csv&#39;</span>
+<span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;spatialOmics-tutorial&#39;</span>
+
+<span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmpdir</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filehandle</span><span class="p">,</span> <span class="s1">&#39;r:gz&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tar</span><span class="p">:</span>
+        <span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">)</span>
+        
+        <span class="n">img</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">fimg</span><span class="p">))</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">fmask</span><span class="p">))</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">fmeta</span><span class="p">))</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># set sample data of spatialOmics</span>
+        <span class="n">so</span><span class="o">.</span><span class="n">spl</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[[</span><span class="n">fimg</span> <span class="ow">in</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">meta</span><span class="o">.</span><span class="n">filename_fullstack</span><span class="p">]]</span>
+        
+        <span class="c1"># add high-dimensional tiff image</span>
+        <span class="n">so</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">fimg</span><span class="p">),</span> <span class="n">to_store</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        
+        <span class="c1"># add segmentation mask</span>
+        <span class="n">so</span><span class="o">.</span><span class="n">add_mask</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;cellmasks&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">fmask</span><span class="p">),</span> <span class="n">to_store</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spatialHeterogeneity</span> <span class="k">as</span> <span class="nn">sh</span>
+
+<span class="c1"># extract centroids of observations</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">extract_centroids</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mask_key</span><span class="o">=</span><span class="s1">&#39;cellmasks&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="n">expr</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">masks</span><span class="p">[</span><span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s1">&#39;cellmasks&#39;</span><span class="p">]</span>
+
+<span class="n">ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+<span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span><span class="p">[</span><span class="n">ids</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># extract single-cell expression values</span>
+<span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expr</span><span class="p">[:,</span> <span class="n">mask</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># add single cell expression values to spatialOmics instance</span>
+<span class="n">so</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">ids</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100%|██████████| 3066/3066 [00:03&lt;00:00, 796.91it/s]
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../api/spatialHeterogeneity.html" class="btn btn-neutral float-right" title="spatialHeterogeneity package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="athena.html" class="btn btn-neutral float-left" title="Introduction of ATHENA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright IBM Corp. 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

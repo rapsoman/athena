@@ -1,0 +1,901 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Introduction of ATHENA &mdash; spatialHeterogeneity  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Populate SpatialOmics instance" href="introduction-spatialOmics.html" />
+    <link rel="prev" title="Install ATHENA" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> spatialHeterogeneity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#technology-overview">Technology Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bulk-vs-single-cell-technologies">Bulk vs Single-cell technologies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spatial-single-cell-technologies">Spatial single-cell technologies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-comparison">Method Comparison</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#overview-athena">Overview ATHENA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submoduls">Submoduls</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-set-up">Environment set up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-pre-computed-data">Load pre-computed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualise-raw-images">Visualise raw images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualise-omics-data">Visualise Omics data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graph-construction">Graph construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visualise-graphs">Visualise Graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quantification-of-diversity">Quantification of diversity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spatial-adaption">Spatial adaption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#infiltration">Infiltration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phenotype-interactions">Phenotype interactions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-spatialOmics.html">Introduction to spatialOmics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/spatialHeterogeneity.html">ATHENA API reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">spatialHeterogeneity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction of ATHENA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/source/athena.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-of-athena">
+<h1>Introduction of ATHENA<a class="headerlink" href="#introduction-of-athena" title="Permalink to this headline">¶</a></h1>
+<p>ATHENA is a computational framwork to analyse spatial heterogeneity in spatial single-cell omics data.</p>
+<div class="section" id="technology-overview">
+<h2>Technology Overview<a class="headerlink" href="#technology-overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bulk-vs-single-cell-technologies">
+<h3>Bulk vs Single-cell technologies<a class="headerlink" href="#bulk-vs-single-cell-technologies" title="Permalink to this headline">¶</a></h3>
+<p>Technologies that measure the expression level of different molecular entities like mRNA, proteins or metabolites can be divided in bulk and single-cell technologies.</p>
+<p>Bulk technologies measure the expression levels across many cells in a suspension, thus the measured expression values are an average of all cells in the sample and we cannot distinguis between different cell types.</p>
+<p>Single-cell omics technologies measure expression levels on a single cell level. Each cell in the suspension is isolated and analysed. Mesurements are in general noisier but enable the distinction of different cell types. However, by supsending the cells we lose information about the connectivity of the single cells.
+<img alt="Single-cell RNA-seq reveals cellular heterogeneity that is masked by bulk RNA-seq methods." src="../_images/single-cell-analysis.png" />
+Credits: 10xGenomics</p>
+</div>
+<div class="section" id="spatial-single-cell-technologies">
+<h3>Spatial single-cell technologies<a class="headerlink" href="#spatial-single-cell-technologies" title="Permalink to this headline">¶</a></h3>
+<p>Spatial single-cell technologies allow an <em>in situ</em> measurement of single cells. Prominent examples are Imaging Mass Cytometry (IMC), Multiplexed Ion Beam Imaging (MIBI) or Visium.</p>
+<p><strong>IMC Method</strong></p>
+<p>A sample is “stained” with an antibody panel that is loaded with metal isotopes. A laser ablates subcellular spots of the tissue and the material is subjected to a time-of-flight mass spectrometer (TOF). In the mass spectrometer the abundance of the metal isotopes is recorded and directly translates into the abundance of the targeted molecular entity.</p>
+<p><img alt="imc2.png" src="../_images/imc2.png" /></p>
+</div>
+<div class="section" id="method-comparison">
+<h3>Method Comparison<a class="headerlink" href="#method-comparison" title="Permalink to this headline">¶</a></h3>
+<p>Bluk <span class="math notranslate nohighlight">\(\rightarrow\)</span> single-cell <span class="math notranslate nohighlight">\(\rightarrow\)</span> spatial single cell technologies increase the information content recovered from tissue samples. However, sample handling, data acquisition and data analysis becomes more complex.
+<img alt="measurement.jpg" src="../_images/measurement.jpg" />
+Credits: 10xGenomics</p>
+</div>
+</div>
+<div class="section" id="overview-athena">
+<h2>Overview ATHENA<a class="headerlink" href="#overview-athena" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Spatially resolved omics measurements are acquired, resulting in highly dimensional images.</p></li>
+<li><p>If necessary (for IMC, MIBI) images are segmented into single cells (cellmasks) and single cell expression values are extracted. Based on the single cell expression values, cells are classified into different type, aka phenotyping.</p></li>
+<li><p>Cellmasks are used to construct a graph representation of the data. The framework currently supports three flavours (radius, knn, contact) that we will showcase later in this tutorial</p></li>
+<li><p>The framework provides a variety of methods to quantify the observed diversity in samples. Furthermore, methods to analyse the interaction strength of different phenotypes are provided.</p></li>
+<li><p>The quantification methods can be used to featurise samples, this featurization can be used in downstream ML models to stratify patients and to discover new biomarkers.</p></li>
+</ol>
+<p><img alt="overview.png" src="../_images/overview.png" /></p>
+<div class="section" id="submoduls">
+<h3>Submoduls<a class="headerlink" href="#submoduls" title="Permalink to this headline">¶</a></h3>
+<p>The ATHENA framework is structured in several submodules to perform tasks</p>
+<ul class="simple">
+<li><p><em>pl</em> for plotting</p></li>
+<li><p><em>graph</em> for graph construction</p></li>
+<li><p><em>pp</em> for pre-processing</p></li>
+<li><p><em>metrics</em> for quantification</p></li>
+<li><p><em>neigh</em> for neighborhood quantification</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="environment-set-up">
+<h2>Environment set up<a class="headerlink" href="#environment-set-up" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">spatialHeterogeneity</span> <span class="k">as</span> <span class="nn">sh</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-pre-computed-data">
+<h2>Load pre-computed data<a class="headerlink" href="#load-pre-computed-data" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load IMC data set form Jackson __et al.__</span>
+<span class="n">so</span> <span class="o">=</span> <span class="n">sh</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">imc</span><span class="p">()</span>
+<span class="n">so</span><span class="o">.</span><span class="n">spl</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">so</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>  <span class="c1"># only keep meta data for samples with expression data</span>
+<span class="n">so</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+
+
+
+
+
+
+        SpatialOmics object with
+        8 samples
+</pre></div>
+</div>
+</div>
+<div class="section" id="visualise-raw-images">
+<h2>Visualise raw images<a class="headerlink" href="#visualise-raw-images" title="Permalink to this headline">¶</a></h2>
+<p>To visualise the high-dimensional raw images we use the python image viewer napari.
+Run the cell below and explore the visualised raw image with the viewer (more information on https://napari.org/#).
+In addition to the single protein expression levels, we also add segmentations masks (with <code class="docutils literal notranslate"><span class="pre">add_masks</span></code>) for the single cells and the tumor-stroma borders.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spl</span> <span class="o">=</span> <span class="s1">&#39;SP43_116_X3Y4&#39;</span>
+<span class="n">proteins</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DNA2&#39;</span><span class="p">,</span> <span class="s1">&#39;CarbonicAnhydraseIX&#39;</span><span class="p">,</span> <span class="s1">&#39;EGFR&#39;</span><span class="p">,</span> <span class="s1">&#39;CD45&#39;</span><span class="p">,</span> <span class="s1">&#39;Fibronectin&#39;</span><span class="p">,</span> <span class="s1">&#39;p53&#39;</span><span class="p">]</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">napari_viewer</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="n">proteins</span><span class="p">,</span> <span class="n">add_masks</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">masks</span><span class="p">[</span><span class="n">spl</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/local/Caskroom/miniconda/base/envs/spatial-heterogeneity/lib/python3.8/site-packages/napari/_vispy/vispy_camera.py:109: RuntimeWarning: divide by zero encountered in true_divide
+  zoom = np.min(canvas_size / scale)
+</pre></div>
+</div>
+</div>
+<div class="section" id="visualise-omics-data">
+<h2>Visualise Omics data<a class="headerlink" href="#visualise-omics-data" title="Permalink to this headline">¶</a></h2>
+<p>In this section we visualise the proteomics measurements of the single cells. But first we set up a colormap that we save in the <code class="docutils literal notranslate"><span class="pre">uns</span></code> attribute of our <code class="docutils literal notranslate"><span class="pre">SpatialOmics</span></code> instance. The plotting modules looks up colormaps in the <code class="docutils literal notranslate"><span class="pre">uns</span></code> attribute when plotting certain features of the data. If there is no colormap for a given attribute the plotting module uses the <code class="docutils literal notranslate"><span class="pre">default</span></code> colormap. The dataset already comes with a phenotype for each single cell (<code class="docutils literal notranslate"><span class="pre">meta_id</span></code> in obs) and a more coares classification into cell types (<code class="docutils literal notranslate"><span class="pre">cell_type_id</span></code> in obs).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">so</span><span class="o">.</span><span class="n">uns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cmaps&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39;cmap_labels&#39;</span><span class="p">:</span> <span class="p">{}}</span>
+
+<span class="c1"># define default colormap</span>
+<span class="n">so</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;cmaps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="n">cm</span><span class="o">.</span><span class="n">Reds</span><span class="p">})</span>
+
+<span class="c1"># set up colormaps for meta_id</span>
+<span class="n">cmap_paper</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">66</span><span class="p">],</span> <span class="p">[</span><span class="mi">62</span><span class="p">,</span> <span class="mi">181</span><span class="p">,</span> <span class="mi">86</span><span class="p">],</span> <span class="p">[</span><span class="mi">203</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">87</span><span class="p">],</span>  <span class="c1"># 0 1 2 3</span>
+                       <span class="p">[</span><span class="mi">84</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">47</span><span class="p">],</span> <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">54</span><span class="p">],</span>  <span class="c1"># 4 5 6</span>
+                       <span class="p">[</span><span class="mi">248</span><span class="p">,</span> <span class="mi">232</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">247</span><span class="p">,</span> <span class="mi">252</span><span class="p">],</span> <span class="p">[</span><span class="mi">190</span><span class="p">,</span> <span class="mi">252</span><span class="p">,</span> <span class="mi">252</span><span class="p">],</span>  <span class="c1"># 7 8 9</span>
+                       <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">225</span><span class="p">],</span> <span class="p">[</span><span class="mi">151</span><span class="p">,</span> <span class="mi">254</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">250</span><span class="p">],</span>  <span class="c1"># 10 11 12</span>
+                       <span class="p">[</span><span class="mi">154</span><span class="p">,</span> <span class="mi">244</span><span class="p">,</span> <span class="mi">253</span><span class="p">],</span> <span class="p">[</span><span class="mi">19</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">144</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">251</span><span class="p">],</span>  <span class="c1"># 13 14 15</span>
+                       <span class="p">[</span><span class="mi">147</span><span class="p">,</span> <span class="mi">213</span><span class="p">,</span> <span class="mi">198</span><span class="p">],</span> <span class="p">[</span><span class="mi">67</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">114</span><span class="p">],</span> <span class="p">[</span><span class="mi">238</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">71</span><span class="p">],</span>  <span class="c1"># 16 17 18</span>
+                       <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">143</span><span class="p">],</span> <span class="p">[</span><span class="mi">135</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">158</span><span class="p">],</span> <span class="p">[</span><span class="mi">250</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">195</span><span class="p">],</span>  <span class="c1"># 19 20 21</span>
+                       <span class="p">[</span><span class="mi">246</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">179</span><span class="p">],</span> <span class="p">[</span><span class="mi">207</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">43</span><span class="p">],</span> <span class="p">[</span><span class="mi">224</span><span class="p">,</span> <span class="mi">162</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>  <span class="c1"># 22 23 24</span>
+                       <span class="p">[</span><span class="mi">246</span><span class="p">,</span> <span class="mi">131</span><span class="p">,</span> <span class="mi">110</span><span class="p">],</span> <span class="p">[</span><span class="mi">135</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">43</span><span class="p">],</span> <span class="p">[</span><span class="mi">178</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">28</span><span class="p">]])</span>
+
+<span class="c1"># define labels for meta_id</span>
+<span class="n">cmap_labels</span> <span class="o">=</span> <span class="p">{</span><span class="mi">22</span><span class="p">:</span> <span class="s1">&#39;CK low HR low&#39;</span><span class="p">,</span>
+               <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Macrophages&#39;</span><span class="p">,</span>
+               <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;Small elongated&#39;</span><span class="p">,</span>
+               <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;T cell&#39;</span><span class="p">,</span>
+               <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;B and T cells&#39;</span><span class="p">,</span>
+               <span class="mi">9</span><span class="p">:</span> <span class="s1">&#39;Small circular&#39;</span><span class="p">,</span>
+               <span class="mi">25</span><span class="p">:</span> <span class="s1">&#39;HR low CK&#39;</span><span class="p">,</span>
+               <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;T cell&#39;</span><span class="p">,</span>
+               <span class="mi">16</span><span class="p">:</span> <span class="s1">&#39;Proliferative&#39;</span><span class="p">,</span>
+               <span class="mi">7</span><span class="p">:</span> <span class="s1">&#39;Endothelial&#39;</span><span class="p">,</span>
+               <span class="mi">21</span><span class="p">:</span> <span class="s1">&#39;Epithelial low&#39;</span><span class="p">,</span>
+               <span class="mi">24</span><span class="p">:</span> <span class="s1">&#39;CK HR&#39;</span><span class="p">,</span>
+               <span class="mi">8</span><span class="p">:</span> <span class="s1">&#39;Vimentin Hi&#39;</span><span class="p">,</span>
+               <span class="mi">14</span><span class="p">:</span> <span class="s1">&#39;Hypoxic&#39;</span><span class="p">,</span>
+               <span class="mi">11</span><span class="p">:</span> <span class="s1">&#39;Fibronectin Hi&#39;</span><span class="p">,</span>
+               <span class="mi">23</span><span class="p">:</span> <span class="s1">&#39;HR hi CK&#39;</span><span class="p">,</span>
+               <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;B cells&#39;</span><span class="p">,</span>
+               <span class="mi">20</span><span class="p">:</span> <span class="s1">&#39;CK7 CK&#39;</span><span class="p">,</span>
+               <span class="mi">13</span><span class="p">:</span> <span class="s1">&#39;SMA Hi Vimentin&#39;</span><span class="p">,</span>
+               <span class="mi">15</span><span class="p">:</span> <span class="s1">&#39;Apopotic&#39;</span><span class="p">,</span>
+               <span class="mi">18</span><span class="p">:</span> <span class="s1">&#39;Basal CK&#39;</span><span class="p">,</span>
+               <span class="mi">19</span><span class="p">:</span> <span class="s1">&#39;CK7 CK hi Cadherin&#39;</span><span class="p">,</span>
+               <span class="mi">17</span><span class="p">:</span> <span class="s1">&#39;p53 EGFR&#39;</span><span class="p">,</span>
+               <span class="mi">12</span><span class="p">:</span> <span class="s1">&#39;Larger elongated&#39;</span><span class="p">,</span>
+               <span class="mi">27</span><span class="p">:</span> <span class="s1">&#39;Myoepithalial&#39;</span><span class="p">,</span>
+               <span class="mi">26</span><span class="p">:</span> <span class="s1">&#39;CK low HR hi p53&#39;</span><span class="p">,</span>
+               <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;Macrophages&#39;</span><span class="p">,</span>
+               <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Background&#39;</span><span class="p">}</span>
+
+<span class="n">so</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;cmaps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;meta_id&#39;</span><span class="p">:</span> <span class="n">ListedColormap</span><span class="p">(</span><span class="n">cmap_paper</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)})</span>
+<span class="n">so</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;cmap_labels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;meta_id&#39;</span><span class="p">:</span> <span class="n">cmap_labels</span><span class="p">})</span>
+
+<span class="c1"># cell_type_id colormap</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;darkgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="s1">&#39;darkred&#39;</span><span class="p">,</span> <span class="s1">&#39;coral&#39;</span><span class="p">]</span>
+<span class="n">cmap_labels</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;background&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;tumor&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;myoepithelial&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;immune&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;endothelial&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;stromal&#39;</span><span class="p">}</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
+
+<span class="n">so</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;cmaps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;cell_type_id&#39;</span><span class="p">:</span> <span class="n">cmap</span><span class="p">})</span>
+<span class="n">so</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;cmap_labels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;cell_type_id&#39;</span><span class="p">:</span> <span class="n">cmap_labels</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>The plotting function <code class="docutils literal notranslate"><span class="pre">pl.spatial</span></code> can be used to visualise the spatial omics measurements.
+The minimal function arguments are the SpatialOmics instance and the sample to visualise. By default the observations are plotted as a scatter plot, however, with <code class="docutils literal notranslate"><span class="pre">mode=mask</span></code> the actuall segmentation masks are used. The observations can be colored according to a specific feature in either <code class="docutils literal notranslate"><span class="pre">so.obs[spl]</span></code> or <code class="docutils literal notranslate"><span class="pre">so.X[spl]</span></code>.</p>
+<p>In order to plot the observation in scatter mode we first need to extract the centroids of the provided segmentation masks. This dataset provides two different segmentations for each sample, the segmentation into single cells (‘cellmasks’) and the segmentation into tumor-stroma regions (‘tumor_stroma’). For the visualisation we would like to extract the centroids from the single cells, as shown below</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spl</span> <span class="o">=</span> <span class="s1">&#39;SP43_116_X3Y4&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">masks</span><span class="p">[</span><span class="n">spl</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="c1"># extract centroids for observations in all samples</span>
+<span class="k">for</span> <span class="n">spl</span> <span class="ow">in</span> <span class="n">so</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">sh</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">extract_centroids</span><span class="p">(</span><span class="n">so</span><span class="p">,</span><span class="n">spl</span><span class="p">,</span> <span class="n">mask_key</span><span class="o">=</span><span class="s1">&#39;cellmasks&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;cellmasks&#39;, &#39;tumor_stroma&#39;])
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spl</span> <span class="o">=</span> <span class="s1">&#39;slide_7_Cy2x3&#39;</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;mask&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;DNA2&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;mask&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><img alt="png" src="../_images/athena_11_0.png" /></p>
+</div>
+<div class="section" id="graph-construction">
+<h2>Graph construction<a class="headerlink" href="#graph-construction" title="Permalink to this headline">¶</a></h2>
+<p>The framework supports three differnt graph builders</p>
+<p><strong>kNN</strong>: Conncets each observation with its <em>k</em> closest neighbors</p>
+<p><strong>radius</strong>: Connects a observation to all other observations within a radius <em>r</em></p>
+<p><strong>contact</strong>: Connects observations that “touch” each other. In a frist step a mask is enlarged by dilation. All other masks that now overlap with this enlarged version are connected.</p>
+<p><img alt="dilation.png" src="../_images/dilation.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import default graph builder parameters</span>
+<span class="kn">from</span> <span class="nn">spatialHeterogeneity.graph_builder.constants</span> <span class="kn">import</span> <span class="n">GRAPH_BUILDER_DEFAULT_PARAMS</span>
+
+<span class="n">spl</span> <span class="o">=</span> <span class="s1">&#39;slide_7_Cy2x3&#39;</span>
+
+<span class="c1"># KNN graph</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">GRAPH_BUILDER_DEFAULT_PARAMS</span><span class="p">[</span><span class="s1">&#39;knn&#39;</span><span class="p">]</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;builder_params&#39;</span><span class="p">][</span><span class="s1">&#39;n_neighbors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">build_graph</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="n">builder_type</span><span class="o">=</span><span class="s1">&#39;knn&#39;</span><span class="p">,</span> <span class="n">mask_key</span><span class="o">=</span><span class="s1">&#39;cellmasks&#39;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+<span class="c1"># sh.graph.build_graph(so, spl, builder_type=&#39;knn&#39;, mask_key=&#39;cellmasks&#39;)  #  run with default graph builder parameters</span>
+
+<span class="c1"># radius graph</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">GRAPH_BUILDER_DEFAULT_PARAMS</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">]</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;builder_params&#39;</span><span class="p">][</span><span class="s1">&#39;radius&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">36</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">build_graph</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="n">builder_type</span><span class="o">=</span><span class="s1">&#39;radius&#39;</span><span class="p">,</span> <span class="n">mask_key</span><span class="o">=</span><span class="s1">&#39;cellmasks&#39;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># contact graph, this takes some time</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">build_graph</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="n">builder_type</span><span class="o">=</span><span class="s1">&#39;contact&#39;</span><span class="p">,</span> <span class="n">mask_key</span><span class="o">=</span><span class="s1">&#39;cellmasks&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1369/1369 [00:18&lt;00:00, 75.00it/s]
+</pre></div>
+</div>
+<div class="section" id="visualise-graphs">
+<h3>Visualise Graphs<a class="headerlink" href="#visualise-graphs" title="Permalink to this headline">¶</a></h3>
+<p>In a next step we use the plotting submodule to visualise the computed graphs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot graphs</span>
+<span class="n">attr</span> <span class="o">=</span> <span class="s1">&#39;meta_id&#39;</span>
+<span class="n">spl</span> <span class="o">=</span> <span class="s1">&#39;slide_7_Cy2x3&#39;</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;mask&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="s1">&#39;knn&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="png" src="../_images/athena_15_0.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spl</span> <span class="o">=</span> <span class="s1">&#39;slide_7_Cy2x3&#39;</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># visualise different graphs for the samples</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">graph_key</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">so</span><span class="o">.</span><span class="n">G</span><span class="p">[</span><span class="n">spl</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="n">graph_key</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">graph_key</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># fig.show()</span>
+</pre></div>
+</div>
+<p><img alt="png" src="../_images/athena_16_0.png" /></p>
+</div>
+</div>
+<div class="section" id="quantification-of-diversity">
+<h2>Quantification of diversity<a class="headerlink" href="#quantification-of-diversity" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>The quantification of the diversity in an ecosystem or a community is a long-standing problem in ecology and, not surprisingly, a vast body of scientific literature has addressed the problem. The application of the concepts developed in ecology to cancer research is straightforward and there is a direct analogy between species/cell types and ecological niches/tumor micro-environments. In general, the metrics developed in ecology try to describe the number of species and their relative abundance within a ecosystem, weighting both aspects differently depending on the metric. The mathematical foundation of these metrics is rooted in information theory.</p>
+<p><img alt="entropic-measures.png" src="../_images/entropic-measures.png" /></p>
+</div>
+<div class="section" id="spatial-adaption">
+<h3>Spatial adaption<a class="headerlink" href="#spatial-adaption" title="Permalink to this headline">¶</a></h3>
+<p>To harness the spatial information about the tumor architecture we adjusted the computation of the diversity indices to consider the phenotype distributions of the single observations (cells). Diversity measures can be computed on a <em>global</em> scope (top) or on a <em>local</em> scope (bottom).</p>
+<p>The <em>global</em> scope simply uses the phenotype distribution of the sample and is not
+exploiting the spatial information in the data. The <em>global</em> scope quantifies the diversity only a sample-level.
+This is how traditional diversity scores in ecology work.</p>
+<p>In contrast, the <em>local</em> scope exploits the graph representation to compute individual
+phenotype distributions for each single cell based on its neighborhood and enables a cell-level quantification of diversity.
+The resulting diversity score distribution can be aggregated / summarised to obtain a sample-level diversity score.</p>
+<p><img alt="local-global.png" src="../_images/local-global.png" /></p>
+</div>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>The result column indicates if the metric is computed on a global (sample) level or on a local (cell or spot) level. The input column specifies the input information used by the metrics. A metric that uses the phenotype distribution does not rely on spatial information. In contrast, metrics that require a graph input use the spatial information encoded in this data representation. Results of some methods depend on hyperparameter choices, as indicated by the last column. Every metric depends on the phenotyping process employed in the experimental setting.</p>
+<!--![metrics-overview.png](img/metrics-overview.png)-->
+<!--
+| Metric             | Result | Input                  | Hyperparameter         |
+|--------------------|--------|------------------------|------------------------|
+| Shannon index      | global | phenotype distribution | --                     |
+| Shannon index      | local  | graph                  | graph choice           |
+| Shannon's evenness | global | phenotype distribution | --                     |
+| Shannon's evenness | local  | graph                  | graph choice           |
+| Simpson index      | global | phenotype distribution | --                     |
+| Simpson index      | local  | graph                  | graph choice           |
+| Simpson's evenness | global | phenotype distribution | --                     |
+| Simpson's evenness | local  | graph                  | graph choice           |
+| Gini-Simpson index | global | phenotype distribution | --                     |
+| Gini-Simpson index | local  | graph                  | graph choice           |
+| Renyi entropy      | global | phenotype distribution | $\alpha$               |
+| Renyi entropy      | local  | graph                  | $\alpha$, graph choice |
+| Hill numbers       | global | phenotype distribution | $q$                    |
+| Hill numbers       | local  | graph                  | $q$, graph choice      |
+| Ripley's K         | global | graph                  | radius, graph choice   |
+| Infiltration       | global | graph                  | graph choice           |
+| Classic            | global | graph                  | graph choice           |
+| HistoCAT           | global | graph                  | graph choice           |
+| Proportion         | global | graph                  | graph choice           |
+| kNN score          | global | graph                  | graph choice           |
+-->
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Result</p></th>
+<th class="head"><p>Input</p></th>
+<th class="head"><p>Hyperparameter</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Shannon index</p></td>
+<td><p>global</p></td>
+<td><p>phenotype distribution</p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-odd"><td><p>Shannon index</p></td>
+<td><p>local</p></td>
+<td><p>graph</p></td>
+<td><p>graph choice</p></td>
+</tr>
+<tr class="row-even"><td><p>Simpson index</p></td>
+<td><p>global</p></td>
+<td><p>phenotype distribution</p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-odd"><td><p>Simpson index</p></td>
+<td><p>local</p></td>
+<td><p>graph</p></td>
+<td><p>graph choice</p></td>
+</tr>
+<tr class="row-even"><td><p>Renyi entropy</p></td>
+<td><p>global</p></td>
+<td><p>phenotype distribution</p></td>
+<td><p><span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Renyi entropy</p></td>
+<td><p>local</p></td>
+<td><p>graph</p></td>
+<td><p><span class="math notranslate nohighlight">\(\alpha\)</span>, graph choice</p></td>
+</tr>
+<tr class="row-even"><td><p>Hill numbers</p></td>
+<td><p>global</p></td>
+<td><p>phenotype distribution</p></td>
+<td><p><span class="math notranslate nohighlight">\(q\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Hill numbers</p></td>
+<td><p>local</p></td>
+<td><p>graph</p></td>
+<td><p><span class="math notranslate nohighlight">\(q\)</span>, graph choice</p></td>
+</tr>
+<tr class="row-even"><td><p>Quadratic Entropy</p></td>
+<td><p>global</p></td>
+<td><p>phenotype distribution</p></td>
+<td><p><span class="math notranslate nohighlight">\(D(x,y)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Quadratic Entropy</p></td>
+<td><p>local</p></td>
+<td><p>phenotype distribution</p></td>
+<td><p><span class="math notranslate nohighlight">\(D(x,y)\)</span>, graph choice</p></td>
+</tr>
+<tr class="row-even"><td><p>Ripley’s K</p></td>
+<td><p>global</p></td>
+<td><p>graph</p></td>
+<td><p>radius, graph choice</p></td>
+</tr>
+<tr class="row-odd"><td><p>Infiltration</p></td>
+<td><p>global</p></td>
+<td><p>graph</p></td>
+<td><p>graph choice</p></td>
+</tr>
+<tr class="row-even"><td><p>Classic</p></td>
+<td><p>global</p></td>
+<td><p>graph</p></td>
+<td><p>graph choice</p></td>
+</tr>
+<tr class="row-odd"><td><p>HistoCAT</p></td>
+<td><p>global</p></td>
+<td><p>graph</p></td>
+<td><p>graph choice</p></td>
+</tr>
+<tr class="row-even"><td><p>Proportion</p></td>
+<td><p>global</p></td>
+<td><p>graph</p></td>
+<td><p>graph choice</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute cell count</span>
+<span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="p">[</span><span class="s1">&#39;cell_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">s</span><span class="p">])</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">so</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+<span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="p">[</span><span class="s1">&#39;immune_cell_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">cell_type</span> <span class="o">==</span> <span class="s1">&#39;immune&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">so</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+
+<span class="c1"># define sample for which we want to compute the metrics</span>
+<span class="n">spl</span> <span class="o">=</span> <span class="s1">&#39;SP43_116_X3Y4&#39;</span>
+
+<span class="c1"># add radius graph for sample</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">build_graph</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="n">builder_type</span><span class="o">=</span><span class="s1">&#39;radius&#39;</span><span class="p">,</span> <span class="n">mask_key</span><span class="o">=</span><span class="s1">&#39;cellmasks&#39;</span><span class="p">)</span>
+
+<span class="c1"># compute richness</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">richness</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># compute metric on the sample-level</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">richness</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="s1">&#39;contact&#39;</span><span class="p">)</span>  <span class="c1"># compute metric on the observation-level</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">richness</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="s1">&#39;radius&#39;</span><span class="p">)</span>
+
+<span class="c1"># compute Shannon Index</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">shannon</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">shannon</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="s1">&#39;contact&#39;</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">shannon</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="s1">&#39;radius&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve richnes of sample</span>
+<span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">spl</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;richness_meta_id&#39;</span><span class="p">,</span> <span class="s1">&#39;shannon_meta_id&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>richness_meta_id    25.000000
+shannon_meta_id      3.176066
+Name: SP43_116_X3Y4, dtype: object
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve metrics for observations</span>
+<span class="n">so</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">spl</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;richness_meta_id_contact&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;richness_meta_id_radius&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;shannon_meta_id_contact&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;shannon_meta_id_radius&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>richness_meta_id_contact</th>
+      <th>richness_meta_id_radius</th>
+      <th>shannon_meta_id_contact</th>
+      <th>shannon_meta_id_radius</th>
+    </tr>
+    <tr>
+      <th>cell_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>6</td>
+      <td>-0.000000</td>
+      <td>2.413088</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+      <td>1.500000</td>
+      <td>1.819722</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>6</td>
+      <td>1.664498</td>
+      <td>1.681899</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>3</td>
+      <td>0.650022</td>
+      <td>0.513185</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>3</td>
+      <td>-0.000000</td>
+      <td>0.824980</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6076</th>
+      <td>3</td>
+      <td>4</td>
+      <td>1.500000</td>
+      <td>1.241510</td>
+    </tr>
+    <tr>
+      <th>6077</th>
+      <td>2</td>
+      <td>2</td>
+      <td>0.721928</td>
+      <td>0.413817</td>
+    </tr>
+    <tr>
+      <th>6078</th>
+      <td>3</td>
+      <td>6</td>
+      <td>1.378783</td>
+      <td>2.150614</td>
+    </tr>
+    <tr>
+      <th>6079</th>
+      <td>3</td>
+      <td>6</td>
+      <td>1.370951</td>
+      <td>1.741234</td>
+    </tr>
+    <tr>
+      <th>6080</th>
+      <td>3</td>
+      <td>3</td>
+      <td>1.521928</td>
+      <td>0.937301</td>
+    </tr>
+  </tbody>
+</table>
+<p>6069 rows × 4 columns</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% visualise metrics</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flat</span>
+
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;richness_meta_id_contact&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cbar_title</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;richness_meta_id_radius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">cbar_title</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;shannon_meta_id_contact&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">cbar_title</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">title</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="s1">&#39;richness contact&#39;</span><span class="p">,</span> <span class="s1">&#39;shannon contact&#39;</span><span class="p">,</span> <span class="s1">&#39;richness radius&#39;</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="c1"># fig.show()</span>
+</pre></div>
+</div>
+<p><img alt="png" src="../_images/athena_23_0.png" /></p>
+<p>The following histograms demonstrate how different graph representation choices influence the diversity quantification. We observe that cells have in general a higher richness when using a radius graph compared to the contact graph. This is expected as a cell in the radius graph is connected to more neighboring cells than in the contact graph.
+Furthermore, we see that in both representations, a single cell has a much lower diversity score than the sample-level estimate.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">spl</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;richness_meta_id_contact&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Contact, sample richness </span><span class="si">{</span><span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">spl</span><span class="p">]</span><span class="o">.</span><span class="n">richness_meta_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">spl</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;richness_meta_id_radius&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Radius, sample richness </span><span class="si">{</span><span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">spl</span><span class="p">]</span><span class="o">.</span><span class="n">richness_meta_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-14-084bf154ce3b&gt;:9: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+  fig.show()
+</pre></div>
+</div>
+<p><img alt="png" src="../_images/athena_25_1.png" /></p>
+</div>
+</div>
+<div class="section" id="infiltration">
+<h2>Infiltration<a class="headerlink" href="#infiltration" title="Permalink to this headline">¶</a></h2>
+<p>The infiltration score was introduced by Keren <em>et al.</em> to measure the degree of immune cell infiltration into the tumor mass.</p>
+<p><span class="math notranslate nohighlight">\(\text{score}=\frac{N_{it}}{N_{ii}}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(N_{it}\)</span> is the number of edges between tumor and immune cells and <span class="math notranslate nohighlight">\(N_{ii}\)</span> the number of edges between immune cells.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">high_var_samples</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;slide_7_Cy2x2&#39;</span><span class="p">,</span> <span class="s1">&#39;slide_7_Cy2x3&#39;</span><span class="p">,</span> <span class="s1">&#39;slide_7_Cy2x4&#39;</span><span class="p">]</span>
+<span class="n">low_var_samples</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;slide_59_Cy7x7&#39;</span><span class="p">,</span> <span class="s1">&#39;slide_59_Cy7x8&#39;</span><span class="p">,</span> <span class="s1">&#39;slide_59_Cy8x1&#39;</span><span class="p">]</span>
+<span class="n">spls</span> <span class="o">=</span> <span class="n">high_var_samples</span> <span class="o">+</span> <span class="n">low_var_samples</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">spls</span><span class="p">):</span>
+    <span class="n">sh</span><span class="o">.</span><span class="n">neigh</span><span class="o">.</span><span class="n">infiltration</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s1">&#39;cell_type&#39;</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="s1">&#39;contact&#39;</span><span class="p">)</span>
+
+<span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">spls</span><span class="p">]</span><span class="o">.</span><span class="n">infiltration</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100%|██████████| 6/6 [00:00&lt;00:00, 39.58it/s]
+
+
+
+
+
+core
+slide_7_Cy2x2     0.068071
+slide_7_Cy2x3     0.117735
+slide_7_Cy2x4     0.553333
+slide_59_Cy7x7    0.143432
+slide_59_Cy7x8    0.195754
+slide_59_Cy8x1    0.193103
+Name: infiltration, dtype: float64
+</pre></div>
+</div>
+<p>In the following figure we plot multiple samples from two patients (top: patient 7, bottom: patient 59).
+The infiltration score for patient 7 is very heterogeneous and ranging from 0.07 to 0.55. In contrast, patient 59 has an infiltration score around ~0.18.
+This example highlights the intra-patient heterogeneity that can be observed and demonstrates that we have to interpret the obtained scores carefully.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">spl</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">high_var_samples</span> <span class="o">+</span> <span class="n">low_var_samples</span><span class="p">):</span>
+    <span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;cell_type_id&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">spl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">spl</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Patient </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">pid</span><span class="si">}</span><span class="se">\n</span><span class="s1">loc: </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">location</span><span class="si">}</span><span class="s1">, infiltration: </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">infiltration</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="c1"># fig.show()</span>
+</pre></div>
+</div>
+<p><img alt="png" src="../_images/athena_29_0.png" /></p>
+</div>
+<div class="section" id="phenotype-interactions">
+<h2>Phenotype interactions<a class="headerlink" href="#phenotype-interactions" title="Permalink to this headline">¶</a></h2>
+<p>Interaction strength of pairs-wise phenotypes is computed by observing the number or proportion of interactions a given phenotype has with another phenotype on average across a sample. A permutation test is used to determine whether the observed interaction strength is an  enrichment or depletion.</p>
+<p><img alt="interactions.png" src="../_images/interactions.png" /></p>
+<!-- ![interactions-quant.png](interactions-quant.png) -->
+<p>The framework implements three different flavours to determine the pair-wise interaction strength between phenotypes.</p>
+<ul class="simple">
+<li><p>classic / <a class="reference external" href="http://www.nature.com/articles/nmeth.4391">histoCAT</a>: Methods developed by the Bodenmiller lab. Estimate the pair-wise interaction strength by counting the number of edges between pair-wise phenotypes.</p></li>
+<li><p>proportion: Flavour of the classic method that normalises the number of edges between phenotypes by the total number of edges present and thus bounds the score [0,1].</p></li>
+</ul>
+<p>All those methods assess the direction of the interaction (attraction / avoidance) by a permutation test.
+This is, the phenotype labels are randomly permuted and the interaction strength recomputed.
+This is repeated multiple times to generate a null hypothesis against which the observed interaction strength is compared.
+If <code class="docutils literal notranslate"><span class="pre">prediction_type=pvalue</span></code>, we compute P-values for the interaction strength based on the two individual one-tailed permutation tests.
+If <code class="docutils literal notranslate"><span class="pre">prediction_type=diff</span></code> the score is simply the difference of the average interaction strength across all permutations and the observed interaction strength.</p>
+<p>In the following cell we compute the interaction strength between the <code class="docutils literal notranslate"><span class="pre">meta_id</span></code> phenotypes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spl</span> <span class="o">=</span> <span class="s1">&#39;slide_49_By2x5&#39;</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">neigh</span><span class="o">.</span><span class="n">interactions</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;proportion&#39;</span><span class="p">,</span> <span class="n">prediction_type</span><span class="o">=</span><span class="s1">&#39;diff&#39;</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="s1">&#39;contact&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>INFO:root:loading h0 for slide_49_By2x5, graph type contact and mode proportion
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">Normalize</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">Normalize</span><span class="p">(</span><span class="o">-</span><span class="mf">.3</span><span class="p">,</span> <span class="mf">.3</span><span class="p">)</span>
+
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">interactions</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;meta_id&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;proportion&#39;</span><span class="p">,</span> <span class="n">prediction_type</span><span class="o">=</span><span class="s1">&#39;diff&#39;</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="s1">&#39;contact&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                   <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># fig.show()</span>
+</pre></div>
+</div>
+<p><img alt="png" src="../_images/athena_33_0.png" /></p>
+<p>In the following cell we compute the interaction strength between the <code class="docutils literal notranslate"><span class="pre">cell_type_id</span></code> phenotypes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sh</span><span class="o">.</span><span class="n">neigh</span><span class="o">.</span><span class="n">interactions</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;cell_type_id&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;proportion&#39;</span><span class="p">,</span> <span class="n">prediction_type</span><span class="o">=</span><span class="s1">&#39;diff&#39;</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="s1">&#39;contact&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">spatial</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;cell_type_id&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">Normalize</span><span class="p">(</span><span class="o">-</span><span class="mf">.3</span><span class="p">,</span> <span class="mf">.3</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">interactions</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">spl</span><span class="p">,</span> <span class="s1">&#39;cell_type_id&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;proportion&#39;</span><span class="p">,</span> <span class="n">prediction_type</span><span class="o">=</span><span class="s1">&#39;diff&#39;</span><span class="p">,</span> <span class="n">graph_key</span><span class="o">=</span><span class="s1">&#39;contact&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># fig.show()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>INFO:root:loading h0 for slide_49_By2x5, graph type contact and mode proportion
+</pre></div>
+</div>
+<p><img alt="png" src="../_images/athena_35_1.png" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="introduction-spatialOmics.html" class="btn btn-neutral float-right" title="Populate SpatialOmics instance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-left" title="Install ATHENA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright IBM Corp. 2021.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
